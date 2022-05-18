@@ -16,8 +16,7 @@ const HomePage = () => {
 
     const interval = setInterval(() => {
       getTexts();
-      // REMOVE one 0 from interval below
-    }, 100000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [loading]);
