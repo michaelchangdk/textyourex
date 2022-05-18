@@ -165,8 +165,8 @@ const SendButton = styled.button`
   border-radius: 4px;
   border: none;
   background-color: white;
-  height: 40px;
-  width: 75%;
+  height: 36px;
+  width: 70%;
   font-family: "Source Code Pro", monospace;
   padding: 0 10px;
   font-size: 18px;
