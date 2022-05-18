@@ -135,7 +135,7 @@ export default SendText;
 const FormContainer = styled.div`
   margin: 15px auto;
   border: 1px solid white;
-  box-shadow: 5px 8px white;
+  box-shadow: 2px 4px white;
   display: flex;
   flex-direction: column;
   padding: 15px;

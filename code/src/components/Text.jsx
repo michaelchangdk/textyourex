@@ -5,28 +5,26 @@ import parseISO from "date-fns/parseISO";
 import styled from "styled-components";
 
 const Text = ({ text, name, likeText }) => {
-  const timePosted = formatDistance(parseISO(text.createdAt), new Date(), {
-    addSuffix: true,
-  });
+  // const timePosted = formatDistance(parseISO(text.createdAt), new Date(), {
+  //   addSuffix: true,
+  // });
 
   return (
     <>
       <TextContainer>
         <TopBar>
-          <ToText>TO: {name.toUpperCase()}</ToText>
-          <p>{text.message}</p>
+          <ToText>TO: {name && name.toUpperCase()}</ToText>
+          <p>{text && text.message}</p>
         </TopBar>
         <BottomBar>
           <LikeContainer>
             <LikeButton
-              likes={text.likes}
+              likes={text && text.likes}
               likeText={likeText}
-              textId={text._id}
+              textId={text && text._id}
             />
           </LikeContainer>
-          <div>
-            <TimeText>{timePosted}</TimeText>
-          </div>
+          <div>{/* <TimeText>{text && timePosted}</TimeText> */}</div>
         </BottomBar>
       </TextContainer>
     </>
@@ -39,7 +37,7 @@ const TextContainer = styled.div`
   height: 220px;
   margin: 15px auto;
   border: 1px solid white;
-  box-shadow: 5px 8px white;
+  box-shadow: 2px 4px white;
   display: flex;
   flex-direction: column;
   padding: 15px;

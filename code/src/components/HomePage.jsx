@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import SendText from "./SendText";
 import Text from "./Text";
 import styled from "styled-components";
+import Search from "./Search";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [exTexts, setExTexts] = useState([]);
   const [text, setText] = useState("");
   const [exName, setExName] = useState("");
+  const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
     if (loading === true) {
@@ -88,9 +90,34 @@ const HomePage = () => {
       });
   };
 
+  // Fetch Most Liked Texts
+  const MOST_LIKED_API = "https://textyourex.herokuapp.com/mostliked";
+  const getMostLiked = async () => {
+    setLoading(true);
+    const response = await fetch(MOST_LIKED_API);
+    const data = await response.json();
+    setExTexts(data.data);
+    setLoading(false);
+  };
+
+  // Search For Name
+  const NAME_SEARCH_API = `https://textyourex.herokuapp.com/ex/${searchName}`;
+  const findName = async () => {
+    setLoading(true);
+    const response = await fetch(NAME_SEARCH_API);
+    const data = await response.json();
+    setExTexts(data.data);
+    setLoading(false);
+  };
+
   return (
     <PageContainer>
       <SendText setText={setText} sendText={sendText} setExName={setExName} />
+      <Search
+        getMostLiked={getMostLiked}
+        setSearchName={setSearchName}
+        findName={findName}
+      />
       {/* {isLoading && <p>Data is loading...</p>} */}
       {exTexts.map((text) => (
         <Text key={text._id} text={text} name={text.ex} likeText={likeText} />
