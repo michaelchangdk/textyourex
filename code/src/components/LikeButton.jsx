@@ -28,6 +28,7 @@ const LikeContainer = styled.button`
   cursor: pointer;
   font-size: 24px;
   border: none;
+  padding-bottom: 2px;
 `;
 
 const LikesText = styled.p`
