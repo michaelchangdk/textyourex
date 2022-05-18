@@ -5,7 +5,7 @@ const LikeButton = ({ likes, likeText, textId }) => {
   return (
     <>
       <LikeContainer onClick={() => likeText(textId)}>
-        <div>💩</div>
+        {likes ? <div>💩</div> : <div>🙊</div>}
         {/* <span role="img" aria-label="like button">
           💩
         </span> */}

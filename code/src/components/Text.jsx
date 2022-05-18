@@ -36,7 +36,7 @@ const Text = ({ text, name, likeText }) => {
 export default Text;
 
 const TextContainer = styled.div`
-  height: 190px;
+  height: 220px;
   margin: 15px auto;
   border: 1px solid white;
   box-shadow: 5px 8px white;
