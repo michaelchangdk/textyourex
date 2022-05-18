@@ -92,10 +92,9 @@ const HomePage = () => {
     <PageContainer>
       <SendText setText={setText} sendText={sendText} setExName={setExName} />
       {/* {isLoading && <p>Data is loading...</p>} */}
-      {!loading &&
-        exTexts.map((text) => (
-          <Text key={text._id} text={text} name={text.ex} likeText={likeText} />
-        ))}
+      {exTexts.map((text) => (
+        <Text key={text._id} text={text} name={text.ex} likeText={likeText} />
+      ))}
     </PageContainer>
   );
 };
