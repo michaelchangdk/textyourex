@@ -162,7 +162,7 @@ const ToContainer = styled.div`
 
 const SendButton = styled.button`
   color: black;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
   background-color: white;
   height: 40px;
@@ -182,7 +182,7 @@ const TextMessage = styled.textarea`
   font-size: 16px;
   resize: none;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 4px;
 `;
 
 const TopContainer = styled.div`
@@ -211,7 +211,7 @@ const ToLabel = styled.label`
 
 const ExInput = styled.input`
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-family: "Source Code Pro", monospace;
   border: none;
   width: 300px;

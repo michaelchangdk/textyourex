@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Search = ({ getMostLiked, setSearchName, findName }) => {
-  const searchName = (e) => {
-    setSearchName(e.target.value);
-  };
+const Search = ({
+  getMostLiked,
+  // setSearchName,
+  // findName
+}) => {
+  //   const searchName = (e) => {
+  //     setSearchName(e.target.value);
+  //   };
   return (
     <StyledBar>
-      <input type="text" onChange={searchName} />
-      <button onClick={() => findName()}>Search for name</button>
+      {/* <input type="text" onChange={searchName} />
+      <button onClick={() => findName()}>Search for name</button> */}
       <button onClick={() => getMostLiked()}>Get Most Liked</button>
     </StyledBar>
   );
