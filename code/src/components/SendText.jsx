@@ -168,7 +168,7 @@ const SendButton = styled.button`
   height: 40px;
   width: 75%;
   font-family: "Source Code Pro", monospace;
-  padding: 0 10px 2px 0;
+  padding: 0 10px;
   font-size: 18px;
   cursor: pointer;
   font-weight: 600;
