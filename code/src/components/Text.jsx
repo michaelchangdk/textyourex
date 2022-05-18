@@ -5,9 +5,9 @@ import parseISO from "date-fns/parseISO";
 import styled from "styled-components";
 
 const Text = ({ text, name, likeText }) => {
-  // const timePosted = formatDistance(parseISO(text.createdAt), new Date(), {
-  //   addSuffix: true,
-  // });
+  const timePosted = formatDistance(parseISO(text.createdAt), new Date(), {
+    addSuffix: true,
+  });
 
   return (
     <>
@@ -24,7 +24,9 @@ const Text = ({ text, name, likeText }) => {
               textId={text && text._id}
             />
           </LikeContainer>
-          <div>{/* <TimeText>{text && timePosted}</TimeText> */}</div>
+          <div>
+            <TimeText>{text && timePosted}</TimeText>
+          </div>
         </BottomBar>
       </TextContainer>
     </>
