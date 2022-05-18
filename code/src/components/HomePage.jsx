@@ -9,19 +9,23 @@ const HomePage = () => {
   const [exTexts, setExTexts] = useState([]);
   const [text, setText] = useState("");
   const [exName, setExName] = useState("");
-  // const [searchName, setSearchName] = useState("");
+  const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
     if (loading === true) {
       getTexts();
     }
 
-    const interval = setInterval(() => {
-      getTexts();
-    }, 10000);
+    // const interval = setInterval(() => {
+    //   getTexts();
+    // }, 10000);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [loading]);
+
+  useEffect(() => {
+    getTexts();
+  }, [exTexts]);
 
   // GETTING TEXTS
   const GET_TEXT_API = "https://textyourex.herokuapp.com/texts";
@@ -91,33 +95,33 @@ const HomePage = () => {
   };
 
   // Fetch Most Liked Texts
-  // const MOST_LIKED_API = "https://textyourex.herokuapp.com/mostliked";
-  // const getMostLiked = async () => {
-  //   setLoading(true);
-  //   const response = await fetch(MOST_LIKED_API);
-  //   const data = await response.json();
-  //   setExTexts(data.data);
-  //   setLoading(false);
-  // };
+  const MOST_LIKED_API = "https://textyourex.herokuapp.com/mostliked";
+  const getMostLiked = async () => {
+    setLoading(true);
+    const response = await fetch(MOST_LIKED_API);
+    const data = await response.json();
+    setExTexts(data.data);
+    setLoading(false);
+  };
 
   // Search For Name
-  // const NAME_SEARCH_API = `https://textyourex.herokuapp.com/ex/${searchName}`;
-  // const findName = async () => {
-  //   setLoading(true);
-  //   const response = await fetch(NAME_SEARCH_API);
-  //   const data = await response.json();
-  //   setExTexts(data.data);
-  //   setLoading(false);
-  // };
+  const NAME_SEARCH_API = `https://textyourex.herokuapp.com/ex/${searchName}`;
+  const findName = async () => {
+    setLoading(true);
+    const response = await fetch(NAME_SEARCH_API);
+    const data = await response.json();
+    setExTexts(data.data);
+    setLoading(false);
+  };
 
   return (
     <PageContainer>
       <SendText setText={setText} sendText={sendText} setExName={setExName} />
-      {/* <Search
+      <Search
         getMostLiked={getMostLiked}
         setSearchName={setSearchName}
         findName={findName}
-      /> */}
+      />
       {/* {isLoading && <p>Data is loading...</p>} */}
       {exTexts.map((text) => (
         <Text key={text._id} text={text} name={text.ex} likeText={likeText} />

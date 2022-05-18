@@ -202,6 +202,7 @@ const BottomContainer = styled.div`
 const TextAreaLabel = styled.label`
   font-weight: 600;
   padding-bottom: 10px;
+  /* font-size: 16px; */
 `;
 
 const ToLabel = styled.label`
