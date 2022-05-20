@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const SendText = ({ setText, sendText, setExName }) => {
+const SendText = ({ setText, sendText, setExName, loading }) => {
   const [messageLength, setMessageLength] = useState(0);
   // const [exNameLength, setExNameLength] = useState(0);
   const [tooLong, setTooLong] = useState(false);
@@ -114,7 +114,7 @@ const SendText = ({ setText, sendText, setExName }) => {
           />
         </TopContainer>
         <BottomContainer>
-          <SendButton style={buttonErrorStyle}>
+          <SendButton style={buttonErrorStyle} disabled={loading}>
             <span
               role="img"
               aria-label="send text message button."

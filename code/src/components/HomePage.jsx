@@ -40,6 +40,7 @@ const HomePage = () => {
   // SENDING A MESSAGE
   const SEND_TEXT_API = "https://textyourex.herokuapp.com/texts";
   const sendText = () => {
+    setLoading(true);
     const options = {
       method: "POST",
       headers: {
@@ -60,6 +61,7 @@ const HomePage = () => {
         document.getElementById("sendText").value = "";
         document.getElementById("exName").value = "";
         getTexts();
+        setLoading(false);
       })
       .catch((e) => {
         // console.log(e)
@@ -118,7 +120,13 @@ const HomePage = () => {
 
   return (
     <PageContainer>
-      <SendText setText={setText} sendText={sendText} setExName={setExName} />
+      <SendText
+        setText={setText}
+        sendText={sendText}
+        setExName={setExName}
+        loading={loading}
+      />
+      {loading && <p>Loading...</p>}
       {/* <Search
         getMostLiked={getMostLiked}
         setSearchName={setSearchName}
